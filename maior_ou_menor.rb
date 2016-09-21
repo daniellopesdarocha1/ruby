@@ -30,16 +30,15 @@ def verifica_se_acertou (numero_secreto, chute)
 	if acertou
 		puts "Acertou!"
 		return true
-	else
-		maior = numero_secreto > chute
-		if maior
-			puts "O número secreto é maior!"
-			return false
-		else
-			puts "O número secreto é menor!"
-			return false
-		end
 	end
+
+	maior = numero_secreto > chute
+	if maior
+		puts "O número secreto é maior!"
+	else
+		puts "O número secreto é menor!"
+	end
+	false #retorno da função
 end
 
 da_boas_vindas
