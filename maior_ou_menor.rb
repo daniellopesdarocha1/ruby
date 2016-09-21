@@ -9,10 +9,19 @@ end
 
 def sorteia_numero_secreto
 	puts "Escolhendo um número secreto entre 1 e 200..."
-	numero_secreto = 175
+	sorteado = 175
 	puts "Escolhido... Adivinhe o numero"
-	#return numero_secreto
-	numero_secreto # a ultima instrução de uma função é o que será retornado
+	#return sorteado
+	sorteado # a ultima instrução de uma função é o que será retornado
+end
+
+def pede_um_numero (tentativa, limite_de_tentativas)
+	puts "\n\n\n\n"
+	puts "Tentativa " + tentativa.to_s + " de " + limite_de_tentativas.to_s
+	puts "Entre com o numero:"
+	chute = gets 
+	puts "Será que acertou? Você chutou " + chute
+	chute.to_i
 end
 
 da_boas_vindas
@@ -21,19 +30,16 @@ numero_secreto = sorteia_numero_secreto
 limite_de_tentativas = 5
 
 for tentativa in 1..limite_de_tentativas
-	puts "\n\n\n\n"
-	puts "Tentativa " + tentativa.to_s + " de " + limite_de_tentativas.to_s
-	puts "Entre com o numero:"
-	chute = gets 
-	puts "Será que acertou? Você chutou " + chute
+	
+	chute = pede_um_numero(tentativa, limite_de_tentativas)
 
-	acertou = chute.to_i == numero_secreto
+	acertou = chute == numero_secreto
 
 	if acertou
 		puts "Acertou!"
 		break
 	else
-		maior = numero_secreto > chute.to_i
+		maior = numero_secreto > chute
 		if maior
 			puts "O número secreto é maior!"
 		else
