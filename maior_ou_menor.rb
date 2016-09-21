@@ -47,13 +47,11 @@ numero_secreto = sorteia_numero_secreto
 
 limite_de_tentativas = 5
 chutes = []
-total_de_chutes = 0
 
 for tentativa in 1..limite_de_tentativas
 
 	chute = pede_um_numero chutes, tentativa, limite_de_tentativas
-	chutes[total_de_chutes] = chute
-	total_de_chutes = total_de_chutes + 1
+	chutes << chute
 
 	if verifica_se_acertou numero_secreto, chute
 		break
