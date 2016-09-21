@@ -8,23 +8,26 @@ puts "Escolhendo um número secreto entre 1 e 200..."
 numero_secreto = 175
 puts "Escolhido... Adivinhe o numero"
 
-puts "\n\n\n\n"
-puts "Tentativa 1"
-puts "Entre com o numero:"
-chute = gets 
-puts "Será que acertou? Você chutou " + chute
+limite_de_tentativas = 5
 
-acertou = chute.to_i == numero_secreto
+for tentativa in 1..limite_de_tentativas
+	puts "\n\n\n\n"
+	puts "Tentativa " + tentativa.to_s + " de " + limite_de_tentativas.to_s
+	puts "Entre com o numero:"
+	chute = gets 
+	puts "Será que acertou? Você chutou " + chute
 
-if acertou
-	puts "Acertou!"
-else
-	maior = numero_secreto > chute.to_i
-	if maior
-		puts "O número secreto é maior!"
+	acertou = chute.to_i == numero_secreto
+
+	if acertou
+		puts "Acertou!"
+		break
 	else
-		puts "O número secreto é menor!"
+		maior = numero_secreto > chute.to_i
+		if maior
+			puts "O número secreto é maior!"
+		else
+			puts "O número secreto é menor!"
+		end
 	end
 end
-
-
