@@ -7,11 +7,16 @@ def da_boas_vindas
 	puts "Começaremos o jogo para você, " + nome
 end
 
-da_boas_vindas
+def sorteia_numero_secreto
+	puts "Escolhendo um número secreto entre 1 e 200..."
+	numero_secreto = 175
+	puts "Escolhido... Adivinhe o numero"
+	#return numero_secreto
+	numero_secreto # a ultima instrução de uma função é o que será retornado
+end
 
-puts "Escolhendo um número secreto entre 1 e 200..."
-numero_secreto = 175
-puts "Escolhido... Adivinhe o numero"
+da_boas_vindas
+numero_secreto = sorteia_numero_secreto
 
 limite_de_tentativas = 5
 
