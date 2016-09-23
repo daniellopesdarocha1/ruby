@@ -14,3 +14,9 @@ não muito usado
 for dedos in 1..3
 	puts "contando" + dedos.to_s
 end
+
+####
+# utilizando o IRB
+# variavel = 12
+# variavel.methods
+####

@@ -1,7 +1,7 @@
 def da_boas_vindas
 	puts "\nBem vindo ao jogo da adivinhação\n"
 	puts "Qual é o seu nome?"
-	nome = gets
+	nome = gets.strip #strip apaga os espaços em branco da string
 
 	puts "\n\n\n"
 	puts "Começaremos o jogo para você, " + nome
@@ -20,7 +20,7 @@ def pede_um_numero (chutes, tentativa, limite_de_tentativas)
 	puts "Tentativa " + tentativa.to_s + " de " + limite_de_tentativas.to_s
 	puts "Chutes até agora: " + chutes.to_s
 	puts "Entre com o numero:"
-	chute = gets 
+	chute = gets.strip
 	puts "Será que acertou? Você chutou " + chute
 	chute.to_i
 end
