@@ -16,7 +16,7 @@ end
 
 def nao_quer_jogar?
     puts "Deseja jogar novamente? (S/N)"
-    nao_quer_jogar = gets.strip
+    nao_quer_jogar = gets.strip.upcase
     nao_quer_jogar = nao_quer_jogar == "N"
 end
 
@@ -30,7 +30,18 @@ def pede_um_chute(chutes, erros)
     chute
 end
 
+def conta(texto, letra)
+    total_encontrado = 0
+    for caractere in texto.chars
+        if texto[i] == letra
+            total_encontrado += 1
+        end
+    end
+    total_encontrado
+end
+
 def joga(nome)
+
     palavra_secreta = escolhe_palavra_secreta
 
     erros = 0
@@ -39,7 +50,33 @@ def joga(nome)
 
     while erros < 5
         chute = pede_um_chute chutes, erros
-        chutes << chute
+        if chutes.include? chute
+            puts "Voce ja acertos o convite."
+            chutes << chute
+
+            chutou_uma_letra = chute.size == 1
+            if chutou_uma_letra
+                letra_procurada = chute[0]
+                total_encontrado = conta palavra_secreta.count letra_procurada
+                if total_encontrado == 0
+                    puts "Letra nao encontrada."
+                    erros += 1
+                else
+                    puts "Letra encontrada #{total_encontrado} vezes."
+                end
+            end
+        else
+            acertou = chute == palavra_secreta
+            if acertou
+                puts "Parabens! Acertou!"
+                pontos_ate_agora += 100
+                break
+            else
+                puts "Que pena... Voce errou"
+                pontos_ate_agora -= 30
+                erros +=1
+            end
+        end
     end
 
     puts "Voce ganhou #{pontos_ate_agora} pontos."
